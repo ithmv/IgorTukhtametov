@@ -1,0 +1,30 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    --font: 'Montserrat', sans-serif;
+
+    font-size: 16px;
+    font-family: var(--font);
+    color: #333;
+    min-width: 320px;
+}
+
+html, body {
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width:1100px;
+    margin: auto;
+    padding: 0 15px;
+}

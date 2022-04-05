@@ -1,0 +1,35 @@
+{
+  "name": "frontendigortukhtametov",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ithmv/IgorTukhtametov.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ithmv/IgorTukhtametov/issues"
+  },
+  "homepage": "https://github.com/ithmv/IgorTukhtametov#readme",
+  "dependencies": {
+    "del": "^6.0.0",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "browser-sync": "^2.27.9",
+    "cssnano": "^5.1.7",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "postcss": "^8.4.12",
+    "sass": "^1.49.11"
+  }
+}
