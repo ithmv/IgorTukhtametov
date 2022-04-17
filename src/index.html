@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
@@ -7,26 +8,100 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+      
         <link rel="stylesheet" href="./css/style.css">
     </head>
 
     <body>
-        <div class="wrapper" hidden>
+        <div class="container">
+            <form id="order">
+
+                <div class="form-control">
+                    <label>Ваше имя:</label>
+                    <input type="text" name="name" required>
+                </div>
+                
+                <div class="form-control">
+                    <label>Номер телефона:</label>
+                    <input type="tel" name="phone" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
+                </div>
+                
+                <div class="form-control">
+                    <label>Выберите мастера:</label>
+                        <select name="masterId">
+                            <option value="Не выбран">Не выбран</option>
+                            <option value="Ирина">Ирина</option>
+                            <option value="Жанна">Жанна</option>
+                            <option value="Алина">Алина</option>
+                            <option value="Елена">Елена</option>
+                        </select>
+                </div>
+                
+                <div class="form-control">
+                    <label>Выберите услугу:</label>
+                    <select name="serviceId">
+                        <option value="Не выбран">Не выбран</option>
+                        <option value="Стрижка">Стрижка</option>
+                        <option value="Маникюр">Маникюр</option>
+                        <option value="Укладка">Укладка</option>
+                        <option value="Массаж">Массаж</option>
+                    </select>
+                </div>
+                
+                <div class="form-control">
+                    <label>Дата визита:</label>
+                    <input type="date" name="visitDate">
+                </div>
+                
+                
+
+                <button type="submit">Записаться</button>
+            </form>
+        </div>
+
+
+
+        <div class="wrapper">
+
+
 
             <header class="header">
+
                 <div class="container">
 
                     <div class="header__top">
                         <a href="/" class="logo header__logo">Мир красоты</a>
 
                         <nav id="nav" class="navigation header__nav">
+
                             <ul class="navigation__list">
-                                <li class="navigation__item"><a href="#about" class="navigation__link">О нас</a></li>
-                                <li class="navigation__item"><a href="#masters" class="navigation__link">Мастера</a></li>
-                                <li class="navigation__item"><a href="#price" class="navigation__link">Услуги и цены</a></li>
-                                <li class="navigation__item"><a href="#portfolio" class="navigation__link">Наши работы</a></li>
-                                <li class="navigation__item"><a href="#contacts" class="navigation__link">Контакты</a></li>
+                                <li class="navigation__item"><a href="#ab" class="navigation__link">О нас</a></li>
+                                <li class="navigation__item"><a href="#ma" class="navigation__link">Мастера</a></li>
+                                <li class="navigation__item"><a href="#pr" class="navigation__link">Услуги и цены</a></li>
+                                <li class="navigation__item"><a href="#po" class="navigation__link">Наши работы</a></li>
+                                <li class="navigation__item"><a href="#co" class="navigation__link">Контакты</a></li>
                             </ul>
+
+                            <div class="navigation__mobile">
+                                <div id="myNav" class="overlay">
+                                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                    <div class="navigation__list_mobile">
+                                        <li class="navigation__item"><a href="#ab" class="navigation__link" onclick="closeNav()">О нас</a></li>
+                                        <li class="navigation__item"><a href="#ma" class="navigation__link" onclick="closeNav()">Мастера</a></li>
+                                        <li class="navigation__item"><a href="#pr" class="navigation__link" onclick="closeNav()">Услуги и цены</a></li>
+                                        <li class="navigation__item"><a href="#po" class="navigation__link" onclick="closeNav()">Наши работы</a></li>
+                                        <li class="navigation__item"><a href="#co" class="navigation__link" onclick="closeNav()">Контакты</a></li>
+                                    </div>
+                                </div>
+                            
+                                <div onclick="openNav()" class="navMenu">
+                                    &#9776;
+                                </div>
+                            </div>
                         </nav>
 
                         <div class="header-phone header__phone">
@@ -40,7 +115,7 @@
                         <div class="hero header__hero">
                             <h1 class="hero__title">Создай свой образ вместе с нами</h1>
                             <p class="hero__subtitle">Идеальный образ за 60 минут</p>
-                            <button data-fancybox data-src="#request" class="btn btn__large">Записаться онлайн</button>
+                            <button class="btn">Записаться онлайн</button>
                         </div>
 
                         <ul class="social social_vertical header__social">
@@ -58,12 +133,15 @@
                     </div>
 
                 </div>
+
             </header>
 
+
             <main class="main">
+
                 <div class="container">
 
-                    <div class="about-Us">
+                    <div id="ab" class="about-Us">
                         <div class="about-Us__txt">
                             <h1>О салоне</h1>
                             <p>Мир красоты - это уютный салон в самом центре города. Здесь работают профессиональные визажисты, стилисты и мастера татуажа</p>
@@ -111,6 +189,7 @@
                                 <button class="btn">
                                     <span class="btn__label">Записаться</span>
                                 </button>
+                                
                             </div>
 
                             <div class="services__item"> 
@@ -152,81 +231,293 @@
                         
                     </div>
 
-                    <div class="prices">
+                    <div id="pr" class="prices">
 
                         <div class="prices__title">
                             <h1>Услуги и цены</h1>
                         </div>
 
-                        <nav class="prices__navigate">
-                            <ul>
-                                <li class="navigation__item"><a href="#" class="navigation__link">Стрижка и укладка</a></li>
-
-                                <li class="navigation__item"><a href="#" class="navigation__link">Косметология</a></li>
-
-                                <li class="navigation__item"><a href="#" class="navigation__link">Маникюр и педикюр</a></li>
-
-                                <li class="navigation__item"><a href="#" class="navigation__link">Макияж</a></li>
-
-                                <li class="navigation__item"><a href="#" class="navigation__link">Брови и ресницы</a></li>
-
-                                <li class="navigation__item"><a href="#" class="navigation__link">Массаж</a></li>
-                            </ul>
-                        </nav>
-
-                        <div class="prices__list">
-
-                            <div class="prices__box">
-                                <div class="prices__box_item">
-                                    <h1>Женская стрижка <p><span>Короткие волосы</span></p></h1>
-                                    <h2>1200 ₽</h2>
-                                    </div>
-        
-                                    <div class="prices__box_item">
-                                    <h1>Мужская стрижка<p><span>Короткие волосы</span></p></h1>
-                                    <h2>1200 ₽</h2>
-                                    </div>
-                                    
-                                    <div class="prices__box_item">
-                                    <h1>Детский стрижка<p><span>Короткие волосы</span></p></h1>
-                                    <h2>1200 ₽</h2>
-                                    </div>
-        
-                                    <div class="prices__box_item">
-                                    <h1>Креативный стиль<p><span>Короткие волосы</span></p></h1>
-                                    <h2>1200 ₽</h2>
-                                    </div>
-                            </div>
-                            <div class="prices__box">
-                                <div class="prices__box_item">
-                                    <h1>Стрижка бороды и усов<p><span>Короткие волосы</span></p></h1>
-                                    <h2>1200 ₽</h2>
-                                    </div>
-        
-                                    <div class="prices__box_item">
-                                    <h1>Экспресс укладка<p><span>Короткие волосы</span></p></h1>
-                                    <h2>1200 ₽</h2>
-                                    </div>
-        
-                                    <div class="prices__box_item">
-                                    <h1>Укладка дневная<p><span>Короткие волосы</span></p></h1>
-                                    <h2>1200 ₽</h2>
-                                    </div>
-        
-                                    <div class="prices__box_item">
-                                    <h1>Прическа вечерняя (свадебная)<p><span>Короткие волосы</span></p></h1>
-                                    <h2>3000 ₽</h2>
-                            </div>
+                        <div class="tabs">
+                        <div class="tabs__nav">
+                            <button class="tabs__btn tabs__btn_active"><p>Стрижка и укладка</p></button>
+                            <button class="tabs__btn"><p>Косметология</p></button>
+                            <button class="tabs__btn"><p>Маникюр и педикюр</p></button>
+                            <button class="tabs__btn"><p>Макияж</p></button>
+                            <button class="tabs__btn"><p>Брови и ресницы</p></button>
+                            <button class="tabs__btn"><p>Массаж</p></button>
                         </div>
-    
-                            
+
+
+
+
+
+
+
+
+                        <div class="tabs__content">
+
+                            <div class="tabs__pane tabs__pane_show">
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Женская стрижка <p><span>Короткие волосы</span></p></h1>
+                                        <h2>1200 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Мужская стрижка<p><span>Короткие волосы</span></p></h1>
+                                        <h2>1200 ₽</h2>
+                                        </div>
+                                        
+                                        <div class="prices__box_item">
+                                        <h1>Детский стрижка<p><span>Короткие волосы</span></p></h1>
+                                        <h2>1200 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Креативный стиль<p><span>Короткие волосы</span></p></h1>
+                                        <h2>1200 ₽</h2>
+                                        </div>
+                                </div>
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Стрижка бороды и усов<p><span>Короткие волосы</span></p></h1>
+                                        <h2>1200 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Экспресс укладка<p><span>Короткие волосы</span></p></h1>
+                                        <h2>1200 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Укладка дневная<p><span>Короткие волосы</span></p></h1>
+                                        <h2>1200 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Прическа вечерняя (свадебная)<p><span>Короткие волосы</span></p></h1>
+                                        <h2>3000 ₽</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tabs__pane">
+
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Чистка лица<p><span>Продолжительность 30 минут</span></p></h1>
+                                        <h2>2000 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Аппаратаня косметология<p><span>Продолжительность 30 минут</span></p></h1>
+                                        <h2>1100 ₽</h2>
+                                        </div>
+                                        
+                                        <div class="prices__box_item">
+                                        <h1>Ботулинотерапия<p><span>Продолжительность 30 минут</span></p></h1>
+                                        <h2>5200 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Контурная пластика<p><span>Продолжительность 30 минут</span></p></h1>
+                                        <h2>7200 ₽</h2>
+                                        </div>
+                                </div>
+
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Чистка кожи<p><span>Продолжительность 30 минут</span></p></h1>
+                                        <h2>2000 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Косметическая пластика<p><span>Продолжительность 30 минут</span></p></h1>
+                                        <h2>1100 ₽</h2>
+                                        </div>
+                                        
+                                </div>
+                            </div>
+
+                            <div class="tabs__pane" id="content-3">
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Красный<p><span>Стойкий лак для ногтей</span></p></h1>
+                                        <h2>500 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Синий<p><span>Стойкий лак для ногтей</span></p></h1>
+                                        <h2>500 ₽</h2>
+                                        </div>
+                                        
+                                        <div class="prices__box_item">
+                                        <h1>Зеленый<p><span>Стойкий лак для ногтей</span></p></h1>
+                                        <h2>500 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Фиолетовый<p><span>Стойкий лак для ногтей</span></p></h1>
+                                        <h2>500 ₽</h2>
+                                        </div>
+                                </div>
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Белый<p><span>Стойкий лак для ногтей</span></p></h1>
+                                        <h2>500 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Чёрный<p><span>Стойкий лак для ногтей</span></p></h1>
+                                        <h2>500 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Прозрачный<p><span>Стойкий лак для ногтей</span></p></h1>
+                                        <h2>800 ₽</h2>
+                                    </div>
+            
+                                </div>
+                            </div>
+
+                            <div class="tabs__pane" id="content-4">
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Дневной <p><span>Продолжительность 2 часа</span></p></h1>
+                                        <h2>1200 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Вечерний<p><span>Продолжительность 2 часа</span></p></h1>
+                                        <h2>1400 ₽</h2>
+                                        </div>
+                                        
+                                        <div class="prices__box_item">
+                                        <h1>Свадебный<p><span>Продолжительность 2 часа</span></p></h1>
+                                        <h2>5300 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Не свадебный<p><span>Продолжительность 1 час</span></p></h1>
+                                        <h2>2300 ₽</h2>
+                                        </div>
+                                </div>
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Деловой<p><span>Продолжительность 2 часа</span></p></h1>
+                                        <h2>2100 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Ретро<p><span>Продолжительность 30 минут</span></p></h1>
+                                        <h2>1100 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Этнический<p><span>Продолжительность 2 часа</span></p></h1>
+                                        <h2>4300 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Ну и еще какой нибудь<p><span>Продолжительность 4 часа</span></p></h1>
+                                        <h2>3200 ₽</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tabs__pane" id="content-5">
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Уголки<p><span>Профессиональные и безопасные краски</span></p></h1>
+                                        <h2>1300 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Объемные<p><span>Профессиональные и безопасные краски</span></p></h1>
+                                        <h2>1500 ₽</h2>
+                                        </div>
+                                        
+                                        <div class="prices__box_item">
+                                        <h1>Классические<p><span>Профессиональные и безопасные краски</span></p></h1>
+                                        <h2>1230 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Наращивание<p><span>Профессиональные и безопасные краски</span></p></h1>
+                                        <h2>1640 ₽</h2>
+                                        </div>
+                                </div>
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Объем 2D<p><span>Профессиональные и безопасные краски</span></p></h1>
+                                        <h2>1870 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Объем 3D<p><span>Профессиональные и безопасные краски</span></p></h1>
+                                        <h2>1670 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Объем 4D<p><span>Профессиональные и безопасные краски</span></p></h1>
+                                        <h2>1230 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Корррекция<p><span>Профессиональные и безопасные краски</span></p></h1>
+                                        <h2>3100 ₽</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tabs__pane" id="content-5">
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Лечебный <p><span>Короткие волосы</span></p></h1>
+                                        <h2>2100 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Детский<p><span>Короткие волосы</span></p></h1>
+                                        <h2>2200 ₽</h2>
+                                        </div>
+                                        
+                                        <div class="prices__box_item">
+                                        <h1>Спортивный<p><span>Короткие волосы</span></p></h1>
+                                        <h2>2500 ₽</h2>
+                                        </div>
+            
+                                        <div class="prices__box_item">
+                                        <h1>Общий<p><span>Короткие волосы</span></p></h1>
+                                        <h2>4200 ₽</h2>
+                                        </div>
+                                </div>
+                                <div class="prices__box">
+                                    <div class="prices__box_item">
+                                        <h1>Точечный<p><span>Короткие волосы</span></p></h1>
+                                        <h2>3200 ₽</h2>
+                                    </div>
+            
+                                    <div class="prices__box_item">
+                                        <h1>Экспресс<p><span>Короткие волосы</span></p></h1>
+                                        <h2>2200 ₽</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        </div>
+
+                        <div class="prices__backtotop">
+                            <a href="#pr">Вернуться к видам услуг</a>
                         </div>
 
                     </div>
 
                 </div>
 
-                <div class="staff">
+                <div id="ma" class="staff">
                     <div class="container">
 
                         <div class="staff__title">
@@ -289,37 +580,67 @@
                     </div>
                 </div>
 
-                <div class="portfolio">
+                <div id="po" class="portfolio">
+
+
                     <div class="container">
                         <div class="portfolio__the-arrows">
                             <h1>Наши работы</h1>
-                            <div class="portfolio__the-arrows_image">
-                                <img src="./images/to right.svg">
-                                <img src="./images/to left.svg">
+
+                            <div class="portfolio__the-arrowsImage">
+
+                                <button class="slider-prev">
+                                    <img src="./images/to right.svg">
+                                </button>
+
+                                <button class="slider-next">
+                                    <img src="./images/to left.svg">
+                                </button>
+
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="portfolio__works">
     
+
                         <div class="portfolio__work">
-                            <img src="./images/work1.png" alt="#">
+                            <a data-fancybox="gallery" href="./images/work1.png"><img src="./images/work1.png" alt=""></a>
+                        </div>
+
+                        <div class="portfolio__work">
+                            <a data-fancybox="gallery" href="./images/work3.png"><img src="./images/work3.png" alt=""></a>
+                        </div>
+
+                        <div class="portfolio__work">
+                            <a data-fancybox="gallery" href="./images/work1.png"><img src="./images/work1.png" alt=""></a>
+                        </div>
+
+                        <div class="portfolio__work">
+                            <a data-fancybox="gallery" href="./images/work4.png"><img src="./images/work4.png" alt=""></a>
+                        </div>
+
+                        <div class="portfolio__work">
+                            <a data-fancybox="gallery" href="./images/work1.png"><img src="./images/work1.png" alt=""></a>
+                        </div>
+
+                        <div class="portfolio__work">
+                            <a data-fancybox="gallery" href="./images/work3.png"><img src="./images/work3.png" alt=""></a>
+                        </div>
+
+                        <div class="portfolio__work">
+                            <a data-fancybox="gallery" href="./images/work1.png"><img src="./images/work1.png" alt=""></a>
+                        </div>
+
+                        <div class="portfolio__work">
+                            <a data-fancybox="gallery" href="./images/work4.png"><img src="./images/work4.png" alt=""></a>
                         </div>
     
-                        <div class="portfolio__work">
-                            <img src="./images/work4.png" alt="#">
-                        </div>
     
-                        <div class="portfolio__work">
-                            <img src="./images/work3.png" alt="#">
-                        </div>
-    
-                        <div class="portfolio__work">
-                            <img src="./images/work4.png" alt="#">
-                        </div>
-    
+
                     </div>
-                
+
+
                 </div>
 
                 <div class="brands">
@@ -337,7 +658,7 @@
                     </div>
                 </div>
 
-                <div class="contacts">
+                <div id="co" class="contacts">
                     <div class="contacts__container">
 
                         <div class="contacts__txt">
@@ -379,18 +700,17 @@
                     </div>
                 </div>
 
-
-
             </main>
+
 
             <footer class="footer">
 
                 <nav class="navigation">
                     <ul>
-                        <li><a href="#">Услуги и цены</a></li>
-                        <li><a href="#">Мастера</a></li>
-                        <li><a href="#">Наши работы</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#pr">Услуги и цены</a></li>
+                        <li><a href="#ma">Мастера</a></li>
+                        <li><a href="#po">Наши работы</a></li>
+                        <li><a href="#co">Контакты</a></li>
                     </ul>
                 </nav>
 
@@ -402,8 +722,50 @@
                 </div>
 
             </footer>
+
             
         </div>
+
+
+
+        <script src="./js/todo.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/tabs.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+        <script>
+        $(document).ready(function(){
+
+            if ($(window).width() < 480) {
+            $('.portfolio__works').slick({
+                slidesToShow: 2,
+                prevArrow: '.slider-prev',
+                nextArrow: '.slider-next'
+            });
+        }
+
+        if ($(window).width() > 480) {
+            $('.portfolio__works').slick({
+                slidesToShow: 4,
+                prevArrow: '.slider-prev',
+                nextArrow: '.slider-next'
+            });
+        }
+        });
+        </script>
+
+        <script>
+        $('a[href^="#"').on('click', function() {
+        let href = $(this).attr('href');
+        $('html, body').animate({
+            scrollTop: $(href).offset().top
+        });
+        return false;
+        });
+        </script>
+
     </body>
 
 </html>

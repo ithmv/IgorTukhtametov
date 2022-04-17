@@ -1,8 +1,27 @@
  /* Large Devices, Wide Screens */ 
- @media only screen and (max-width: 1280px) { 
+@media only screen and (max-width: 1280px) { 
 } 
 /* Medium Devices, Desktops */ 
-@media only screen and (max-width: 992px) { 
+@media only screen and (max-width: 1080px) { 
+    
+    .phone-info {
+        text-align: center;
+    }
+
+    .logo {
+        margin: auto;
+    }
+
+    .navigation__list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation__list:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
 } 
 /* Small Devices, Tablets */ 
 @media only screen and (max-width: 768px) { 

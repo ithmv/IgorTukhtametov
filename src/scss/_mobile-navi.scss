@@ -1,0 +1,79 @@
+
+.navigation__mobile { 
+    display: none;
+}
+
+    @media only screen
+    and (max-device-width : 1080px) 
+    
+        { .navigation__mobile { 
+            display: inline; 
+        }
+    }
+
+
+.navMenu {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -10px;
+    left: 30px;
+    font-size: 40px;
+    font-weight: 700;
+    cursor: pointer;
+}
+  
+  .overlay {    
+      height: 0%;
+      width: 100%;
+      position: fixed;
+      z-index: 999999;
+      left: 0;
+      top: 0;
+      background: #F8F6F7;
+      overflow-y: hidden;
+      transition: 0.25s;
+      opacity: 0.95;
+      border-radius: 8%;
+}
+  
+  .navigation__list_mobile {
+      position: relative;
+      top: 25%;
+      width: 100%;
+      text-align: center;
+      font-size: 36px;
+      list-style: none;
+}
+  
+  .overlay a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 36px;
+      color: #333 !important;
+      display: block; 
+      transition: 0.5s; 
+}
+  
+  .overlay a:hover, .overlay a:focus {
+      color: $green !important;
+      text-decoration: underline;
+}
+  
+  .closebtn {
+      position: absolute;
+      top: 5px;
+      left: 25px;
+      font-size: 60px !important; 
+}
+  
+  @media screen and (max-height: 1080px) {
+    .overlay {overflow-y: auto;}
+    .overlay a {font-size: 20px}
+    .closebtn {
+      font-size: 70px !important;
+      top: 10%;
+      text-align: left;
+      left: 60px;
+    }
+}
