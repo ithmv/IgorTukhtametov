@@ -1,18 +1,5 @@
-import $ from 'jquery'; 
+import $ from 'jquery';
 import { OrderForm } from './forms/order-form';
-
-/* Open */
-function openNav() {
-  document.getElementById("myNav").style.height = "100%";
-}
-
-
-/* Close */
-function closeNav() {
-  document.getElementById("myNav").style.height = "0%";
-}
-
-
 
 function init() {
     $('.portfolio__works').slick({
@@ -24,7 +11,7 @@ function init() {
     new OrderForm();
 }
 
-
+$(document).ready(init);
 
 class ItcTabs {
     constructor(target, config) {
@@ -92,6 +79,3 @@ $('html, body').animate({
 });
 return false;
 });
-
-
-$(document).ready(init);

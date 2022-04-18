@@ -8,15 +8,16 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
         <link rel="stylesheet" href="./css/style.css">
     </head>
 
     <body>
+       
+
+
+
         <div class="container">
             <form id="order">
 
@@ -728,43 +729,10 @@
 
 
 
-        <script src="./js/todo.js"></script>
-        <script src="./js/main.js"></script>
-        <script src="./js/tabs.js"></script>
+
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
-        <script>
-        $(document).ready(function(){
-
-            if ($(window).width() < 480) {
-            $('.portfolio__works').slick({
-                slidesToShow: 2,
-                prevArrow: '.slider-prev',
-                nextArrow: '.slider-next'
-            });
-        }
-
-        if ($(window).width() > 480) {
-            $('.portfolio__works').slick({
-                slidesToShow: 4,
-                prevArrow: '.slider-prev',
-                nextArrow: '.slider-next'
-            });
-        }
-        });
-        </script>
-
-        <script>
-        $('a[href^="#"').on('click', function() {
-        let href = $(this).attr('href');
-        $('html, body').animate({
-            scrollTop: $(href).offset().top
-        });
-        return false;
-        });
-        </script>
+        <script src="./main.min.js"></script>
+        <script src="./js/tst.js"></script>
 
     </body>
 

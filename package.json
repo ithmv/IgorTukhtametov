@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/ithmv/IgorTukhtametov#readme",
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "ajax": "^0.0.4",
     "del": "^6.0.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -30,6 +33,7 @@
     "browser-sync": "^2.27.9",
     "cross-env": "^7.0.3",
     "cssnano": "^5.1.7",
+    "fancybox": "^3.0.1",
     "gulp": "^4.0.2",
     "gulp-postcss": "^9.0.1",
     "gulp-rename": "^2.0.0",
