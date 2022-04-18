@@ -28,3 +28,49 @@ a {
     margin: auto;
     padding: 0 15px;
 }
+
+.btn {
+    position: relative;
+    padding: 17px 30px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #FB9475;
+    border-radius: 24px;
+    border: 0;
+    margin-top: 16px;
+    margin-bottom: 45px;
+    cursor: pointer;
+
+    &__large {
+        padding: 17px 30px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFF;
+        background: #FB9475;
+        border-radius: 24px;
+        border: 0;
+        margin-top: 39px;
+    }
+    
+}   
+
+.social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+    & img {
+        height: 33.01px;
+        width: 32px;
+    }
+    
+    & li:not(:last-child) {
+        margin-right: 18px;
+    }
+}
