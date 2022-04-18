@@ -28,10 +28,11 @@ function buildSass() {
 
 // Таск работы с html файлами
 function buildHtml() {
-    return src('src/**/*.html')
+   return src('src/**/*.html')
     .pipe(dest('dist'))
     .pipe(browserSync.stream());
 }
+
 
 // Таск копирования статичных файлов
 function copy() {
@@ -40,11 +41,11 @@ function copy() {
     .pipe(browserSync.stream());
 }
 
-// Таск копирования статичных файлов
-function copy() {
-    return src(['src/images/**/*.*'], { base: 'src' })
-    .pipe(dest('dist'))
-    .pipe(browserSync.stream());
+function buildJs() {
+    return src('src/js/index.js')
+      .pipe(dest('src'))
+      .pipe(dest('dist'))
+      .pipe(browserSync.stream());
 }
 
 // Таск очистки dist
@@ -54,6 +55,7 @@ function cleanDist() {
 
 // Таск отслеживания изменения файлов
 function serve() {
+    watch(['src/js/**/*.js', '!src/js/**/*.min.js'], buildJs);
     watch('src/scss/**/*.scss', buildSass);
     watch('src/**/*.html', buildHtml);
 }
@@ -65,5 +67,5 @@ function createDevServer() {
     })
 }
 
-exports.build = series(cleanDist, buildSass, buildHtml, copy);
-exports.default = series(buildSass, parallel(createDevServer, serve));
+exports.build = series(cleanDist, buildSass, buildHtml, buildJs, copy);
+exports.default = series([buildSass, buildJs], parallel(createDevServer, serve));
