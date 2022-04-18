@@ -42,7 +42,7 @@ function copy() {
 }
 
 function buildJs() {
-    return src('src/js/index.js')
+    return src('src/js/**.js')
       .pipe(dest('src'))
       .pipe(dest('dist'))
       .pipe(browserSync.stream());
