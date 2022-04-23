@@ -18,7 +18,7 @@ export class OrderForm {
     #_bindEvents() {
         this.formEl.addEventListener('submit', event => {
             event.preventDefault();
-            // ...
+            //////////
         });
     }
 
