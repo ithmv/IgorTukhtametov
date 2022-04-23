@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { OrderForm } from './forms/order-form';
 
 function init(){
 
@@ -8,15 +9,17 @@ function init(){
         prevArrow: '.slider-prev',
         nextArrow: '.slider-next'
     });
-}
+    }
 
-if ($(window).width() > 480) {
+    if ($(window).width() > 480) {
     $('.portfolio__works').slick({
         slidesToShow: 4,
         prevArrow: '.slider-prev',
         nextArrow: '.slider-next'
     });
-}
+    }
+
+    new OrderForm();
 }
 
 $(document).ready(init);
