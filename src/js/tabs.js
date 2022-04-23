@@ -46,5 +46,3 @@ class ItcTabs {
     }
   }
   new ItcTabs('.tabs');
-
-  
