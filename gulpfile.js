@@ -46,10 +46,10 @@ function buildJs() {
     return src('src/js/index.js')
       .pipe(webpackStream(require('./webpack.config')))
       .pipe(rename('main.min.js'))
-      .pipe(dest('src'))
-      .pipe(dest('dist'))
+      .pipe(dest('src/js'))
+      .pipe(dest('dist/js'))
       .pipe(browserSync.stream());
-}
+  }
 
 // Таск очистки dist
 function cleanDist() {

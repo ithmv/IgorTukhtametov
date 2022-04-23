@@ -1,17 +1,9 @@
-import $ from 'jquery'; 
-import { OrderForm } from './forms/order-form';
-
-function init() {
-    $('.portfolio__works').slick({
-        slidesToShow: 4,
-        prevArrow: '.slider-prev',
-        nextArrow: '.slider-next'
-    });
-
-    new OrderForm();
+function openNav() {
+    document.getElementById("myNav").style.height = "60%";
 }
-
-
+function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+}
 
 class ItcTabs {
     constructor(target, config) {
@@ -62,23 +54,4 @@ class ItcTabs {
   }
   new ItcTabs('.tabs');
 
-const order = document.getElementById('order');
-
-order.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const { name, phone, masterId, serviceId, visitDate } = event.target.elements;
-
-    console.log(name.value, phone.value, masterId.value, serviceId.value, visitDate.value);
-});
-
-$('a[href^="#"').on('click', function() {
-let href = $(this).attr('href');
-$('html, body').animate({
-    scrollTop: $(href).offset().top
-});
-return false;
-});
-
-
-$(document).ready(init);
+  
