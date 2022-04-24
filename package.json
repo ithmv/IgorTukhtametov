@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ithmv/IgorTukhtametov#readme",
   "dependencies": {
+    "antd": "^4.19.5",
     "del": "^6.0.0",
     "normalize.css": "^8.0.1",
     "slick-carousel": "^1.8.1"
