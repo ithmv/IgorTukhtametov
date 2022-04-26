@@ -1,3 +1,6 @@
+@import './mixins';
+@import './media';
+
 html {
     box-sizing: border-box;
 }
@@ -39,7 +42,7 @@ a {
     padding: 0 15px;
 }
 
-.btn {
+.btn, .btn__sub, .btn__form{
     position: relative;
     padding: 17px 30px;
     font-weight: 500;
@@ -65,7 +68,16 @@ a {
         border-radius: 24px;
         border: 0;
         margin-top: 39px;
-        
+    }
+
+    &__form {
+        margin:30px 0 0 0;
+        width: 420px;
+
+        @include _1080() {
+            width: 320px;
+        }
+
     }
     
 }   

@@ -17,57 +17,6 @@
 
         <div class="wrapper">
 
-
-
-            <section class="section">
-                <div class="container">
-
-                    <div class="section__header">
-                        <h2 class="section__title">Контакты</h2>
-                    </div>
-
-                    <div class="section__inner">
-                        <form id="order">
-
-                            <div class="form-control">
-                                <label>Ваше имя:</label>
-                                <input type="text" name="name">
-                            </div>
-
-                            <div class="form-control">
-                                <label>Номер телефона:</label>
-                                <input type="tel" name="phone" inputmode="tel" placeholder="+7 (___)___-__-__">
-                            </div>
-
-                            <div class="form-control">
-                                <label>Выбурите мастера:</label>
-                                <select name="masterId">
-                                    <option value="">Не выбран</option>
-                                </select>
-                            </div>
-
-                            <div class="form-control">
-                                <label>Выбурите услугу:</label>
-                                <select name="serviceId">
-                                    <option value="">Не выбрана</option>
-                                </select>
-                            </div>
-
-                            <div class="form-control">
-                                <label>Дата визита</label>
-                                <input type="date" name="visitDate">
-                            </div>
-
-                            <button>Записаться</button>
-
-                        </form>
-                    </div>
-
-                </div>
-            </section>
-
-
-            
             <header class="header">
                 <div class="container">
 
@@ -113,7 +62,7 @@
                         <div class="hero header__hero">
                             <h1 class="hero__title">Создай свой образ вместе с нами</h1>
                             <p class="hero__subtitle">Идеальный образ за 60 минут</p>
-                            <button data-fancybox data-src="#request" class="btn btn__large">Записаться онлайн</button>
+                            <button class="btn">Записаться онлайн</button>
                         </div>
 
                         <ul class="social social_vertical header__social">
@@ -682,10 +631,10 @@
                             <h1>Быстрая запись</h1>
                             <h2>Наш менеджер перезвонит в течение нескольких минут, уточнит подробности и согласует время.</h2>
                                 <div class="feedback_input">
-                                <input type="text" placeholder="Введите ваше имя">
-                                <input type="text" placeholder="+7 (___)____-___-___">
+                                <input type="text" placeholder="Введите ваше имя" required>
+                                <input type="text" placeholder="+7 (___)____-___-___" required>
                                 </div>
-                                <button class="btn">
+                                <button class="btn__sub">
                                     <span class="btn___label">Записаться</span>
                                 </button>
                                 <h3>Нажимая на кнопку вы соглашаетесь с <a href="#">обработкой персональных данных</a></h3>
@@ -714,66 +663,94 @@
                 </div>
 
             </footer>
-            
+  
         </div>
+
+        <div class="popup">
+            <div class="popup__container">
+                <div class="popup__wrapper">
+                <div id="blablabla">
+                    <button class="fclose">&times;</button>
+                    <form id="order" role="form">
+                        <div class="form-control">
+                            <label>Ваше имя:</label>
+                            <input type="text" name="name" required>
+                        </div>
+    
+                        <div class="form-control">
+                            <label>Номер телефона:</label>
+                            <input type="tel" name="phone" inputmode="tel" placeholder="+7 (___)___-__-__" required>
+                        </div>
+    
+                        <div class="form-control">
+                            <label>Выбурите мастера:</label>
+                            <select name="masterId">
+                                <option value="">Не выбран</option>
+                                <option value="">Краснова Ирина</option>
+                                <option value="">Касилова Жанна</option>
+                                <option value="">Киселева Алина</option>
+                                <option value="">Иванова Елена</option>
+                            </select>
+                        </div>
+    
+                        <div class="form-control">
+                            <label>Выбурите услугу:</label>
+                            <select name="serviceId">
+                                <option value="">Не выбрана</option>
+                                <option value="">Стрижка и укладка</option>
+                                <option value="">Косметология</option>
+                                <option value="">Маникюр и педикюр</option>
+                                <option value="">Макияж</option>
+                                <option value="">Брови и ресницы</option>
+                                <option value="">Массаж</option>
+                            </select>
+                        </div>
+    
+                        <div class="form-control">
+                            <label>Дата визита</label>
+                            <input type="date" name="visitDate">
+                        </div>
+    
+                        <button class="btn__form" type="submit">Записаться</button>
+
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-        
         <script src="./main.min.js"></script>
-
-
         <script>
-            class ItcTabs {
-    constructor(target, config) {
-      const defaultConfig = {};
-      this._config = Object.assign(defaultConfig, config);
-      this._elTabs = typeof target === 'string' ? document.querySelector(target) : target;
-      this._elButtons = this._elTabs.querySelectorAll('.tabs__btn');
-      this._elPanes = this._elTabs.querySelectorAll('.tabs__pane');
-      this._eventShow = new Event('tab.itc.change');
-      this._init();
-      this._events();
-    }
-    _init() {
-      this._elTabs.setAttribute('role', 'tablist');
-      this._elButtons.forEach((el, index) => {
-        el.dataset.index = index;
-        el.setAttribute('role', 'tab');
-        this._elPanes[index].setAttribute('role', 'tabpanel');
-      });
-    }
-    show(elLinkTarget) {
-      const elPaneTarget = this._elPanes[elLinkTarget.dataset.index];
-      const elLinkActive = this._elTabs.querySelector('.tabs__btn_active');
-      const elPaneShow = this._elTabs.querySelector('.tabs__pane_show');
-      if (elLinkTarget === elLinkActive) {
-        return;
-      }
-      elLinkActive ? elLinkActive.classList.remove('tabs__btn_active') : null;
-      elPaneShow ? elPaneShow.classList.remove('tabs__pane_show') : null;
-      elLinkTarget.classList.add('tabs__btn_active');
-      elPaneTarget.classList.add('tabs__pane_show');
-      this._elTabs.dispatchEvent(this._eventShow);
-      elLinkTarget.focus();
-    }
-    showByIndex(index) {
-      const elLinkTarget = this._elButtons[index];
-      elLinkTarget ? this.show(elLinkTarget) : null;
-    };
-    _events() {
-      this._elTabs.addEventListener('click', (e) => {
-        const target = e.target.closest('.tabs__btn');
-        if (target) {
-          e.preventDefault();
-          this.show(target);
+        function openNav() {
+            document.getElementById("myNav").style.height = "60%";
         }
-      });
-    }
-  }
-  new ItcTabs('.tabs');
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+}
         </script>
 
+        <script>
+
+            const form = document.querySelector('#blablabla');
+            const popup = document.querySelector('.popup');
+            let button = document.getElementsByClassName('btn');
+                for (let i = 0; i < button.length; i++) {
+                    button[i].onclick = function() {
+                    form.classList.add('open');
+                    popup.classList.add('popup_open');
+                    }
+                }
+
+                let fclose = document.getElementsByClassName('fclose');
+                for (let i = 0; i < fclose.length; i++) {
+                    fclose[i].onclick = function() {
+                    form.classList.remove('open');
+                    popup.classList.remove('popup_open');
+                    }
+                }
+        </script>
 
     </body>
 
