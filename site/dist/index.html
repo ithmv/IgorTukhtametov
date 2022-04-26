@@ -469,7 +469,7 @@
 
                         <div class="staff__team">
 
-                            <div class="staff__teammember">
+                            <div onclick="btn" class="staff__teammember">
 
                                 <div class="staff__teammember_photo">
                                     <img src="./images/ирина.png" alt="Краснова Ирина">
@@ -717,7 +717,7 @@
                 </div>
                 </div>
             </div>
-            </div>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
@@ -738,6 +738,14 @@
             let button = document.getElementsByClassName('btn');
                 for (let i = 0; i < button.length; i++) {
                     button[i].onclick = function() {
+                    form.classList.add('open');
+                    popup.classList.add('popup_open');
+                    }
+                }
+
+                let buttonst = document.getElementsByClassName('staff__teammember');
+                for (let i = 0; i < buttonst.length; i++) {
+                    buttonst[i].onclick = function() {
                     form.classList.add('open');
                     popup.classList.add('popup_open');
                     }
