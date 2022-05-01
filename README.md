@@ -1,5 +1,2 @@
-# Author: Igor Tukhtametov
-<h2>Netlify Link:</h2>
-<p>https://626875822fc2ef00094e01aa--aquamarine-snickerdoodle-03ce67.netlify.app/</p>
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4b71b9af-f972-427c-8f76-f17002cae654/deploy-status)](https://app.netlify.com/sites/aquamarine-snickerdoodle-03ce67/deploys)
+# IgorTukhtametov
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6c897768-4811-45d5-a16f-612ffeaa05a8/deploy-status)](https://app.netlify.com/sites/wondrous-profiterole-c46209/deploys)
