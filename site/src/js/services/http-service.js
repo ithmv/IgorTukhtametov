@@ -1,24 +1,24 @@
 export class HttpService {
-    constructor(baseApiPath = '') {
+  constructor(baseApiPath = "") {
       this.baseApi = baseApiPath;
-    }
-  
-    async get(path) {
+  }
+
+  async get(path) {
       const response = await fetch(`${this.baseApi}/${path}`);
       return response.json();
-    }
-  
-    async post(path, body) {
+  }
+
+  async post(path, body) {
       const stringifiedData = JSON.stringify(body);
-  
+
       const response = await fetch(`${this.baseApi}/${path}`, {
-        method: 'POST',
-        body: stringifiedData,
-        headers: {
-          'Content-Type': 'application/json'
-        }
+          method: "POST",
+          body: stringifiedData,
+          headers: {
+              "Content-Type": "application/json",
+          },
       });
-  
-      return response.json();
-    }
+
+      return response;
+  }
 }

@@ -1,46 +1,160 @@
-import $ from 'jquery';
-import { OrderForm } from './forms/order-form';
+import $ from "jquery";
+import { Form } from "./forms/form";
+import ApiService from "./services/api-service";
 
-function init(){
+window.onload = function () {
+    const applicantForm = document.getElementById("form");
+    const extendedForm = document.getElementById("extended-form");
+    const priceBtn = document.querySelectorAll(".price__navigation ul>li>a");
+    const priceBox = document.querySelectorAll(".price__box");
 
-    if ($(window).width() < 480) {
-    $('.portfolio__works').slick({
-        slidesToShow: 2,
-        prevArrow: '.slider-prev',
-        nextArrow: '.slider-next'
-    });
+    for (let i = 0; i < priceBtn.length; i++) {
+        priceBtn[i].addEventListener("click", (e) => {
+            const tabsPath = e.target.dataset.tabsPath;
+            priceBtn.forEach((el) => {
+                el.classList.remove("navigation_active");
+            });
+            document
+                .querySelector(`[data-tabs-path="${tabsPath}"]`)
+                .classList.add("navigation_active");
+            tabsHandler(tabsPath);
+        });
     }
 
-    if ($(window).width() > 480) {
-    $('.portfolio__works').slick({
-        slidesToShow: 4,
-        prevArrow: '.slider-prev',
-        nextArrow: '.slider-next'
-    });
+    const tabsHandler = (path) => {
+        priceBox.forEach((el) => {
+            el.classList.remove("price-box_active");
+        });
+        document
+            .querySelector(`[data-tabs-target="${path}"]`)
+            .classList.add("price-box_active");
+        priceBtn.forEach((btn) => {
+            btn.classList.remove("navigation_active-btn");
+        });
+        document
+            .querySelector(`[data-tabs-path="${path}"]`)
+            .classList.add("navigation_active-btn");
+    };
+
+    tabsHandler("Styling");
+
+    function success(form) {
+        alert('Мы свяжемся с вами в ближайшее время!')
     }
 
-    new OrderForm();
-}
+    async function handleFormSubmit(event) {
+        event.preventDefault();
+        const name = applicantForm.querySelector('[name="name"]');
+        const phone = applicantForm.querySelector('[name="phone"]');
+        if (!name.checkValidity() || !phone.checkValidity()) {
+            return 0;
+        }
+        const formData = serializeForm(applicantForm);
+        const response = await ApiService.createOrder(formData);
 
-$(document).ready(init);
+        if (response.ok) {
+            success(applicantForm);
+            applicantForm.reset();
+        }
+    }
 
-$('a[href^="#"').on('click', function() {
-    let href = $(this).attr('href');
-    $('html, body').animate({
-        scrollTop: $(href).offset().top
+
+    async function getFormValue(event) {
+        event.preventDefault();
+        const name = extendedForm.querySelector('[name="name"]');
+        const phone = extendedForm.querySelector('[name="phone"]');
+        if (!name.checkValidity() || !phone.checkValidity()) {
+            return 0;
+        }
+        const formData = serializeForm(extendedForm);
+
+        function toggleLoader() {
+            const loader = document.getElementById("loader");
+            loader.classList.toggle("loader_hidden");
+        }
+
+        toggleLoader();
+        const response = await ApiService.createOrder(formData);
+        toggleLoader();
+
+        if (response.ok) {
+            success(extendedForm);
+            setTimeout(function () {
+                extendedForm
+                    .getElementsByClassName("fancybox-button")[0]
+                    .click();
+                extendedForm.reset();
+                extendedForm.getElementsByClassName("alert")[0].remove();
+            }, 10);
+        }
+    }
+
+    function serializeForm(formNode) {
+        const { elements } = formNode;
+        const data = {};
+        const data_raw = Array.from(elements)
+            .filter((item) => !!item.name)
+            .map((element) => {
+                const { name, value } = element;
+
+                return { name, value };
+            });
+        data_raw.forEach(function (el) {
+            data[el["name"]] = el["value"];
+        });
+
+        return data;
+    }
+
+    function createValidator(form) {
+        $(function () {
+            $(form).validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2,
+                    },
+                },
+                messages: {
+                    name: {
+                        required: "&laquo; Имя c обязательно к заполнению",
+                        minlength:
+                            "&laquo; Имя &laquo; должно содержать не менее 2-х символов",
+                    },
+                    phone: {
+                        required:
+                            "&laquo Телефон &raquo; обязателен к заполнению",
+                    },
+                },
+            });
+        });
+    }
+
+    extendedForm.addEventListener("submit", getFormValue);
+    applicantForm.addEventListener("submit", handleFormSubmit);
+
+    createValidator("#form");
+    $(document).ready(function () {
+        $(mask).inputmask({ mask: "+7 (999) 999-99-99" });
     });
-    return false;
+
+    createValidator("#extended-form");
+    $(document).ready(function () {
+        $(extendedMask).inputmask({ mask: "+7 (999) 999-99-99" });
     });
 
-const order = document.getElementById('order');
+    function init() {
+        $(".portfolio__works").slick({
+            slidesToShow: 4,
+            prevArrow: ".slider-prev",
+            nextArrow: ".slider-next",
+        });
 
-order.addEventListener('submit', (event) => {
-    event.preventDefault();
+        new Form();
+    }
 
-    const { name, phone, masterId, serviceId, visitDate } = event.target.elements;
-
-    console.log(name.value, phone.value, masterId.value, serviceId.value, visitDate.value);
-});
+    $(document).ready(init);
+};
 
 class ItcTabs {
     constructor(target, config) {
